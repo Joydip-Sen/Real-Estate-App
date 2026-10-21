@@ -32,7 +32,7 @@ balcony = st.selectbox('Number of Balcony',sorted(list(df['balcony'].unique())))
 property_age = st.selectbox('Property Age',sorted(list(df['agePossession'].unique())))
 
 # built_up_area
-built_up_area = float(st.number_input('Built Up Area'))
+built_up_area = float(st.number_input('Built Up Area (sqft'))
 
 def change(x):
     if x=='Yes':
