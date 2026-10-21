@@ -46,7 +46,7 @@ def estimate_built_up_area(bedroom, bathroom, balcony, property_type):
 default_area = estimate_built_up_area(bedroom, bathroom, balcony, property_type)
 
 built_up_area = float(st.number_input('Built Up Area (sqft)',min_value=100,value=default_area,
-                                      step=10,key=f'built_up_{default_area}'))
+                                      step=50,key=f'built_up_{default_area}'))
 
 def change(x):
     if x=='Yes':
