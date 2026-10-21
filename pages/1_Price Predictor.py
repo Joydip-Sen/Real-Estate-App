@@ -32,7 +32,21 @@ balcony = st.selectbox('Number of Balcony',sorted(list(df['balcony'].unique())))
 property_age = st.selectbox('Property Age',sorted(list(df['agePossession'].unique())))
 
 # built_up_area
-built_up_area = float(st.number_input('Built Up Area (sqft)'))
+def estimate_built_up_area(bedroom, bathroom, balcony, property_type):
+    
+    balcony_n = 3 if str(balcony) == '3+' else int(balcony)
+
+    if property_type == 'Flat':
+        area = 290 * bedroom + 260 * bathroom + 35 * balcony_n
+    else:  # House
+        area = 300 * bedroom + 150 * bathroom + 100 * balcony_n
+
+    return int(max(area, 300))
+
+default_area = estimate_built_up_area(bedroom, bathroom, balcony, property_type)
+
+built_up_area = float(st.number_input('Built Up Area (sqft)',min_value=100,value=default_area,
+                                      step=10,key=f'built_up_{default_area}'))
 
 def change(x):
     if x=='Yes':
