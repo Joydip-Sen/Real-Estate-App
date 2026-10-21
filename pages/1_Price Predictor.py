@@ -37,9 +37,9 @@ def estimate_built_up_area(bedroom, bathroom, balcony, property_type):
     balcony_n = 3 if str(balcony) == '3+' else int(balcony)
 
     if property_type == 'Flat':
-        area = 290 * bedroom + 260 * bathroom + 35 * balcony_n
+        area = 350 * bedroom + 200 * bathroom + 35 * balcony_n
     else:  # House
-        area = 300 * bedroom + 150 * bathroom + 100 * balcony_n
+        area = 350 * bedroom + 200 * bathroom + 100 * balcony_n
 
     return int(max(area, 300))
 
