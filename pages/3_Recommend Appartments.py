@@ -41,7 +41,7 @@ def recommend_properties_with_scores(property_name, top_n=5):
 st.title('Select Location and Radius')
 
 selected_location = st.selectbox('Location',sorted(location_df.columns.to_list()))
-radius = st.number_input('Radius in Kms')
+radius = st.number_input('Radius in Kms',step = 1)
 
 if st.button('Search'):
     result = location_df[location_df[selected_location] < radius*1000][selected_location].sort_values()
