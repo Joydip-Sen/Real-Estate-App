@@ -88,4 +88,5 @@ if st.button('Predict'):
     high = base_price + 0.24
 
     # Display
-    st.text("The price of the {} is between {} Cr and {} Cr".format(one_df.iloc[0,:]['property_type'],round(low,2), round(high,2)))
+    st.text("The price of the {} is between {:.2f} Cr and {:.2f} Cr".format(one_df.iloc[0,:]['property_type'], low, high))
+    
